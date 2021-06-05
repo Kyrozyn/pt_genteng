@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -31,5 +34,29 @@ class DatabaseSeeder extends Seeder
         $role_pemilik->givePermissionTo(Permission::all());
         $role_manager->givePermissionTo(['manage_items','manage_orders','manage_customers']);
         $role_pegawai->givePermissionTo(['see_delivery']);
+
+        //make user
+        $pemilik = new User();
+        $pemilik->password = Hash::make('password');
+        $pemilik->email = 'pemilik@gmail.com';
+        $pemilik->name = 'Pemilik';
+        $pemilik->assignRole('Pemilik');
+        $pemilik->save();
+
+        //make manager
+        $manager = new User();
+        $manager->password = Hash::make('password');
+        $manager->email = 'manager@gmail.com';
+        $manager->name = 'Manager';
+        $manager->assignRole('Manager');
+        $manager->save();
+
+        //make pegawai
+        $pegawai = new User();
+        $pegawai->password = Hash::make('password');
+        $pegawai->email = 'pegawai@gmail.com';
+        $pegawai->name = 'Pegawai';
+        $pegawai->assignRole('Pegawai');
+        $pegawai->save();
     }
 }
