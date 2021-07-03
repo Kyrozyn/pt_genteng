@@ -17,13 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('layouts.dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [\App\Http\Controllers\Dashboard::class,'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('/test',function (){
-    return view('layouts.dashboard');
-});
-
-
+Route::get('/pelanggan',[\App\Http\Controllers\Dashboard::class,'pelanggan']);
 require __DIR__.'/auth.php';
