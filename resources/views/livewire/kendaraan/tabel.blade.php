@@ -15,7 +15,7 @@
                 <td class="text-center">{{$kendaraan->id}}</td>
                 <td class="text-center">{{$kendaraan->nama}}</td>
                 <td class="text-center">{{$kendaraan->no_plat}}</td>
-                <td class="text-center">{{$kendaraan->kapasitas}}</td>
+                <td class="text-center">{{$kendaraan->kapasitas}} Pcs</td>
                 <td class="center">
                     <div class="btn-group text-center">
                         {{--                        <button type="button" class="btn btn-sm btn-primary mr-1" data-toggle="tooltip"--}}

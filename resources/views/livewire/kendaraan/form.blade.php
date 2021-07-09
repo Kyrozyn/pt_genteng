@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label for="kapasitas">Kapasitas</label>
-                        <input type="number" class="form-control" id="kapasitas" name="kapasitas" placeholder="Kapasiras" wire:model="kapasitas">
+                        <input type="number" class="form-control" id="kapasitas" name="kapasitas" placeholder="Dalam satuan Pcs" wire:model="kapasitas">
                     </div>
                 </div>
                 <div class="block-content block-content-full text-right bg-light" @if(($nama == null OR $no_plat == null OR $kapasitas == null)) style="display: none" @endif>
