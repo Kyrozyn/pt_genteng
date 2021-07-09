@@ -21,19 +21,18 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        Permission::create(['name' => 'manage_items']);
-        Permission::create(['name' => 'manage_orders']);
-        Permission::create(['name' => 'manage_customers']);
-        Permission::create(['name' => 'manage_delivery']);
-        Permission::create(['name' => 'see_delivery']);
+        Permission::create(['name' => 'manage_pelanggan']);
+        Permission::create(['name' => 'manage_produk']);
+        Permission::create(['name' => 'manage_kendaraan']);
+        Permission::create(['name' => 'manage_pemesanan']);
 
         $role_pemilik = Role::create(['name' => 'Pemilik']);
         $role_manager = Role::create(['name' => 'Manager']);
         $role_pegawai = Role::create(['name' => 'Pegawai']);
 
         $role_pemilik->givePermissionTo(Permission::all());
-        $role_manager->givePermissionTo(['manage_items','manage_orders','manage_customers']);
-        $role_pegawai->givePermissionTo(['see_delivery']);
+        $role_manager->givePermissionTo(['manage_pelanggan','manage_produk','manage_kendaraan']);
+        $role_pegawai->givePermissionTo(['manage_pemesanan']);
 
         //make user
         $pemilik = new User();

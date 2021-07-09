@@ -19,4 +19,12 @@ class Dashboard extends Controller
     public function pelanggan(){
         return view('dashboard.pelanggan.tabel');
     }
+
+    public function produk(){
+        return view('dashboard.produk.tabel');
+    }
+
+    public function kendaraan(){
+        return view('dashboard.kendaraan.tabel');
+    }
 }

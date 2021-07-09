@@ -91,6 +91,7 @@ namespace App\Models{
  * @property int $id
  * @property string $nama
  * @property string $deskripsi
+ * @property string $satuan
  * @property string $stok
  * @method static \Illuminate\Database\Eloquent\Builder|produk newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|produk newQuery()
@@ -98,6 +99,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|produk whereDeskripsi($value)
  * @method static \Illuminate\Database\Eloquent\Builder|produk whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|produk whereNama($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|produk whereSatuan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|produk whereStok($value)
  */
 	class produk extends \Eloquent {}

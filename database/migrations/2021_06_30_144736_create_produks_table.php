@@ -17,6 +17,7 @@ class CreateProduksTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('deskripsi');
+            $table->string('satuan');
             $table->string('stok');
         });
     }

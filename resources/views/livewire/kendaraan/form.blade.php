@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
                 <div class="block-header bg-primary-dark">
-                    <h3 class="block-title">{{$status}} Pelanggan</h3>
+                    <h3 class="block-title">{{$status}} Kendaraan</h3>
                     <div class="block-options">
                         <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-fw fa-times"></i>
@@ -12,20 +12,20 @@
                 </div>
                 <div class="block-content">
                     <div class="form-group">
-                        <label for="nama">Nama Pelanggan</label>
-                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Pelanggan" wire:model="nama">
+                        <label for="nama">Nama Kendaraan</label>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Kendaraan" wire:model="nama">
                     </div>
                     <div class="form-group">
-                        <label for="alamat">Alamat Pelanggan</label>
-                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat Pelanggan" wire:model="alamat">
+                        <label for="plat">No Plat</label>
+                        <input type="text" class="form-control" id="plat" name="plat" placeholder="No Plat Kendaraan" wire:model="no_plat">
                     </div>
                     <div class="form-group">
-                        <label for="no_telp">No Telepon</label>
-                        <input type="tel" class="form-control" id="no_telp" name="no_telp" placeholder="No Telp Pelanggan" wire:model="no_telp">
+                        <label for="kapasitas">Kapasitas</label>
+                        <input type="number" class="form-control" id="kapasitas" name="kapasitas" placeholder="Kapasiras" wire:model="kapasitas">
                     </div>
                 </div>
-                <div class="block-content block-content-full text-right bg-light" @if(($nama == null OR $alamat == null OR $no_telp == null)) style="display: none" @endif>
-                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" wire:click="submitAdd">{{$status}} Pelanggan</button>
+                <div class="block-content block-content-full text-right bg-light" @if(($nama == null OR $no_plat == null OR $kapasitas == null)) style="display: none" @endif>
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" wire:click="submitAdd">{{$status}} Kendaraan</button>
                 </div>
             </div>
         </div>

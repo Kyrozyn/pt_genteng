@@ -33,6 +33,10 @@
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
     <link rel="stylesheet" id="css-theme" href="assets/css/themes/xplay.min.css">
     @livewireStyles
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    </script>
+    ...
+    <x-livewire-alert::scripts />
     <!-- END Stylesheets -->
 </head>
 <body>
@@ -123,30 +127,31 @@ MAIN CONTENT LAYOUT
             <div class="content-side">
                 <ul class="nav-main">
                     <li class="nav-main-item">
-                        <a class="nav-main-link active" href="gs_backend.html">
+                        <a class="nav-main-link" href="{{url('/dashboard')}}">
                             <i class="nav-main-link-icon fa fa-rocket"></i>
                             <span class="nav-main-link-name">Dashboard</span>
-                            <span class="nav-main-link-badge badge badge-pill badge-success">3</span>
                         </a>
                     </li>
-                    <li class="nav-main-heading">Heading</li>
+                    <li class="nav-main-heading">Pelanggan</li>
                     <li class="nav-main-item">
-                        <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                            <i class="nav-main-link-icon fa fa-puzzle-piece"></i>
-                            <span class="nav-main-link-name">Dropdown</span>
+                        <a class="nav-main-link" href="{{url('/pelanggan')}}">
+                            <i class="nav-main-link-icon fa fa-user-circle"></i>
+                            <span class="nav-main-link-name">Daftar Pelanggan</span>
                         </a>
-                        <ul class="nav-main-submenu">
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="javascript:void(0)">
-                                    <span class="nav-main-link-name">Link #1</span>
-                                </a>
-                            </li>
-                            <li class="nav-main-item">
-                                <a class="nav-main-link" href="javascript:void(0)">
-                                    <span class="nav-main-link-name">Link #2</span>
-                                </a>
-                            </li>
-                        </ul>
+                    </li>
+                    <li class="nav-main-heading">Produk</li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{url('/produk')}}">
+                            <i class="nav-main-link-icon fa fa-box"></i>
+                            <span class="nav-main-link-name">Daftar Produk</span>
+                        </a>
+                    </li>
+                    <li class="nav-main-heading">Kendaraan</li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{url('/kendaraan')}}">
+                            <i class="nav-main-link-icon fa fa-car"></i>
+                            <span class="nav-main-link-name">Daftar Kendaraan</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -177,35 +182,16 @@ MAIN CONTENT LAYOUT
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-fw fa-user d-sm-none"></i>
-                        <span class="d-none d-sm-inline-block">Admin</span>
+                        <span class="d-none d-sm-inline-block">{{Auth::user()->name}}</span>
                         <i class="fa fa-fw fa-angle-down ml-1 d-none d-sm-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="page-header-user-dropdown">
                         <div class="bg-primary rounded-top font-w600 text-white text-center p-3">
-                            User Options
+                            Pengaturan User
                         </div>
                         <div class="p-2">
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="far fa-fw fa-user mr-1"></i> Profile
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                <span><i class="far fa-fw fa-envelope mr-1"></i> Inbox</span>
-                                <span class="badge badge-primary badge-pill">3</span>
-                            </a>
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="far fa-fw fa-file-alt mr-1"></i> Invoices
-                            </a>
                             <div role="separator" class="dropdown-divider"></div>
-
-                            <!-- Toggle Side Overlay -->
-                            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="layout" data-action="side_overlay_toggle">
-                                <i class="far fa-fw fa-building mr-1"></i> Settings
-                            </a>
-                            <!-- END Side Overlay -->
-
-                            <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="javascript:void(0)">
+                            <a class="dropdown-item" href="{{url('/logout')}}">
                                 <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i> Sign Out
                             </a>
                         </div>
@@ -231,10 +217,10 @@ MAIN CONTENT LAYOUT
         <div class="content py-0">
             <div class="row font-size-sm">
                 <div class="col-sm-6 order-sm-2 mb-1 mb-sm-0 text-center text-sm-right">
-                    Crafted with <i class="fa fa-heart text-danger"></i> by <a class="font-w600" href="https://1.envato.market/ydb" target="_blank">pixelcave</a>
+
                 </div>
                 <div class="col-sm-6 order-sm-1 text-center text-sm-left">
-                    <a class="font-w600" href="https://1.envato.market/r6y" target="_blank">Dashmix 3.2</a> &copy; <span data-toggle="year-copy"></span>
+                    <a class="font-w600" href="https://1.envato.market/r6y" target="_blank">Husni</a> &copy; <span data-toggle="year-copy"></span>
                 </div>
             </div>
         </div>

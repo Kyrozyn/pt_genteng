@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Livewire\Pelanggan;
+namespace App\Http\Livewire\Produk;
 
-use App\Models\pelanggan;
+use App\Models\produk;
 use Livewire\Component;
 
 class Tabel extends Component
 {
-    public $pelanggans,$deleteid;
+    public $produks,$deleteid;
     protected $listeners = [
         'deleteConfirmed','refreshTable'
     ];
 
     public function render()
     {
-        $this->pelanggans = pelanggan::all();
-        return view('livewire.pelanggan.tabel');
+        $this->produks = produk::all();
+        return view('livewire.produk.tabel');
     }
 
     public function refreshTable(){
@@ -24,7 +24,7 @@ class Tabel extends Component
 
     public function delete($id){
         $this->deleteid = $id;
-        $this->confirm('Apakah anda yakin akan menghapus pelanggan ini?', [
+        $this->confirm('Apakah anda yakin akan menghapus produk ini?', [
             'toast' => true,
             'position' => 'center',
             'showConfirmButton' => true,
@@ -35,11 +35,11 @@ class Tabel extends Component
 
     public function deleteConfirmed()
     {
-        $rekening = pelanggan::whereId($this->deleteid)->first();
+        $rekening = produk::whereId($this->deleteid)->first();
         $rekening->delete();
         $this->alert(
             'success',
-            'Pelanggan berhasil dihapus!'
+            'produk berhasil dihapus!'
         );
     }
 }
