@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Satuan">Satuan</label>
-                        <input type="text" class="form-control" id="Satuan" name="Satuan" placeholder="Satuan Produk, Contoh : buah, kg, dan lain lain" wire:model="satuan">
+                        <input type="text" class="form-control" id="Satuan" name="Satuan" placeholder="Satuan Produk, Contoh : bungkus, pcs, dan lain lain" wire:model="satuan">
                     </div>
                     <div class="form-group">
                         <label for="Stok">Stok</label>
