@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\kendaraan;
+namespace App\Http\Livewire\Kendaraan;
 
 use App\Models\kendaraan;
 use Livewire\Component;
