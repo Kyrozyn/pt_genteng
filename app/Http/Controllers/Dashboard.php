@@ -15,16 +15,4 @@ class Dashboard extends Controller
     {
         return view('dashboard.index');
     }
-
-    public function pelanggan(){
-        return view('dashboard.pelanggan.tabel');
-    }
-
-    public function produk(){
-        return view('dashboard.produk.tabel');
-    }
-
-    public function kendaraan(){
-        return view('dashboard.kendaraan.tabel');
-    }
 }
