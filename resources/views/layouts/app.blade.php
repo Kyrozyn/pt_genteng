@@ -209,6 +209,7 @@ MAIN CONTENT LAYOUT
     <!-- Main Container -->
     <main id="main-container">
         @yield('content')
+        {{$slot ?? ''}}
     </main>
     <!-- END Main Container -->
 

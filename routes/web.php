@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [\App\Http\Controllers\Dashboard::class,'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('/pelanggan',[\App\Http\Controllers\Dashboard::class,'pelanggan']);
-Route::get('/produk',[\App\Http\Controllers\Dashboard::class,'produk']);
-Route::get('/kendaraan',[\App\Http\Controllers\Dashboard::class,'kendaraan']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/pelanggan', \App\Http\Livewire\Pelanggan\Tabel::class);
+    Route::get('/produk', \App\Http\Livewire\Produk\Tabel::class);
+    Route::get('/kendaraan', \App\Http\Livewire\Kendaraan\Tabel::class);
+});
 require __DIR__.'/auth.php';
