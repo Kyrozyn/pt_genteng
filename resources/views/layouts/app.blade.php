@@ -28,10 +28,10 @@
     <!-- Stylesheets -->
     <!-- Fonts and Dashmix framework -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" id="css-main" href="assets/css/dashmix.min.css">
+    <link rel="stylesheet" id="css-main" href="{{asset('assets/css/dashmix.min.css')}}">
 
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-    <link rel="stylesheet" id="css-theme" href="assets/css/themes/xplay.min.css">
+    <link rel="stylesheet" id="css-theme" href="{{asset('assets/css/themes/xplay.min.css')}}">
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
     </script>
@@ -231,8 +231,8 @@ MAIN CONTENT LAYOUT
 <!-- END Page Container -->
 
 <!-- Dashmix JS -->
-<script src="assets/js/dashmix.core.min.js"></script>
-<script src="assets/js/dashmix.app.min.js"></script>
+<script src="{{asset('assets/js/dashmix.core.min.js')}}"></script>
+<script src="{{asset('assets/js/dashmix.app.min.js')}}"></script>
 @livewireScripts
 </body>
 </html>
