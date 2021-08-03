@@ -176,7 +176,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-5">
                         <div class="form-group">
                             <label>Tanggal Pengiriman</label>
                             <input type="date" wire:model="tanggal" class="form-control" min="@if($pending){{now()->add('+7 day')->format('Y-m-d')}}@else{{now()->add('+1 day')->format('Y-m-d')}}@endif" value="@if($pending){{now()->add('+7 day')->format('Y-m-d')}}@else{{now()->add('+1 day')->format('Y-m-d')}}@endif">
@@ -191,9 +191,17 @@
                 Konfirmasi Pemesanan
             </div>
             <div class="block-content">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label>Keterangan Pesanan</label>
+                            <textarea wire:model="keterangan" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
                 <div class="row mb-4">
                     <div class="col-4">
-                        <button class="btn btn-primary" @if(empty($produkselectedid) or $tanggal == null or $idpelanggan == null) disabled @endif>Buat Pemesanan</button>
+                        <button class="btn btn-primary" wire:click="buatPemesanan" @if(empty($produkselectedid) or $tanggal == null or $idpelanggan == null) disabled @endif>Buat Pemesanan</button>
                     </div>
                 </div>
             </div>

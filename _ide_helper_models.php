@@ -86,6 +86,46 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\pemesanan
+ *
+ * @property int $id
+ * @property int $pelanggan_id
+ * @property string $tanggal_pengiriman
+ * @property string $keterangan
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\produk[] $produk
+ * @property-read int|null $produk_count
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan query()
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan whereKeterangan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan wherePelangganId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan whereTanggalPengiriman($value)
+ */
+	class pemesanan extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\pemesanan_produk
+ *
+ * @property int $id
+ * @property int $pemesanan_id
+ * @property int $produk_id
+ * @property int $jumlah
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan_produk newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan_produk newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan_produk query()
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan_produk whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan_produk whereJumlah($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan_produk wherePemesananId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan_produk whereProdukId($value)
+ */
+	class pemesanan_produk extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\produk
  *
  * @property int $id

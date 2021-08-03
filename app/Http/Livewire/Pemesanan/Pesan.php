@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Pemesanan;
 
 use App\Models\pelanggan;
+use App\Models\pemesanan;
+use App\Models\pemesanan_produk;
 use App\Models\produk;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,7 +14,7 @@ class Pesan extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $cariproduk,$caripelanggan;
-    public $produkselectedid=[], $jumlahproduk=[], $idpelanggan,$pending=false, $tanggal;
+    public $produkselectedid=[], $jumlahproduk=[], $idpelanggan,$pending=false, $tanggal, $keterangan;
     protected $casts = [
         'tanggal' => 'date:Y-m-d'
     ];
@@ -69,6 +71,28 @@ class Pesan extends Component
     public function tambahProduk($id,$jumlah){
         array_push($this->produkselectedid,$id);
         $this->jumlahproduk[$id] = $jumlah;
+    }
+
+    public function buatPemesanan()
+    {
+        $pemesanan = new pemesanan();
+        $pemesanan->tanggal_pengiriman = $this->tanggal;
+        $pemesanan->pelanggan_id = $this->idpelanggan;
+        $pemesanan->keterangan = $this->keterangan;
+        $pemesanan->save();
+
+        foreach ($this->jumlahproduk as $id_barang => $jumlah){
+            $pemesanan_produk = new pemesanan_produk();
+            $pemesanan_produk->pemesanan_id = $pemesanan->id;
+            $pemesanan_produk->produk_id = $id_barang;
+            $pemesanan_produk->jumlah = $jumlah;
+            $pemesanan_produk->save();
+        }
+
+        $this->alert(
+            'success',
+            'Pemesanan berhasil dibuat!'
+        );
     }
 
 
