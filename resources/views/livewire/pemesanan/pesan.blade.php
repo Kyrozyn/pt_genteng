@@ -17,6 +17,11 @@
             <div class="block-content">
                 <div class="row">
                     <div class="col-12">
+                        <div class="alert alert-danger @if($pending) d-block @else d-none @endif" role="alert">
+                            <p class="mb-0">Pengiriman akan mengalami keterlambatan dikarenakan stok yang dipesan kurang</p>
+                        </div>
+                    </div>
+                    <div class="col-12">
                         @if(!$produkselected==null)
                             <div class="table-responsive" wire:ignore.self>
                                 <table class="table table-bordered table-striped table-vcenter ">
@@ -42,7 +47,7 @@
                                                                                               type="number"
                                                                                               wire:model="jumlahproduk.{{$produk->id}}"
                                                                                               min="1"
-                                                                                              max="{{$produk->stok}}">
+                                                                                              >
                                             </td>
                                             </td>
                                         </tr>
@@ -57,26 +62,9 @@
                         @endif
                     </div>
                 </div>
-                <div class="row">
-                    <div class="custom-control custom-block custom-control-primary">
-                        <input type="checkbox" class="custom-control-input" id="example-cb-custom-block1" name="example-cb-custom-block1">
-                        <label class="custom-control-label" for="example-cb-custom-block1">
-                                                    <span class="d-flex align-items-center">
-                                                        <img class="img-avatar img-avatar48" src="assets/media/avatars/avatar8.jpg" alt="">
-                                                        <span class="ml-2">
-                                                            <span class="font-w700">Amber Harvey</span>
-                                                            <span class="d-block font-size-sm text-muted">Web Designer</span>
-                                                        </span>
-                                                    </span>
-                        </label>
-                        <span class="custom-block-indicator">
-                                                    <i class="fa fa-check"></i>
-                                                </span>
-                    </div>
-                </div>
             </div>
-
         </div>
+
         <div class="block block-rounded">
             <div class="block-header block-header-default">Tambah Produk</div>
             <div class="block-content">
@@ -128,6 +116,62 @@
             </div>
 
         </div>
+
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">Pelanggan</div>
+            <div class="block-content">
+                <div class="form-group">
+                    <label>Cari Pelanggan</label>
+                    <input type="text" class="form-control" wire:model="caripelanggan"
+                           placeholder="Cari berdasarkan ID/Nama/Alamat">
+                </div>
+                <div class="row">
+                    @if(!$caripelanggan == null)
+                        @if($pelanggans->isNotEmpty())
+                            @foreach($pelanggans as $pelanggan)
+                                <div class="col-3 pb-2">
+                                    <div class="custom-control custom-block custom-control-primary">
+                                        <input type="radio" class="custom-control-input" id="{{$pelanggan->id}}"
+                                               name="pelanggan" value="{{$pelanggan->id}}" wire:model="idpelanggan">
+                                        <label class="custom-control-label" for="{{$pelanggan->id}}">
+                                                    <span class="d-flex align-items-center">
+                                                        <img class="img-avatar img-avatar48"
+                                                             src="assets/media/avatars/avatar8.jpg" alt="">
+                                                        <span class="ml-2">
+                                                            <span class="font-w700">{{$pelanggan->nama}}</span>
+                                                            <span
+                                                                class="d-block font-size-sm text-muted">{{$pelanggan->id}}</span>
+                                                        </span>
+                                                    </span>
+                                        </label>
+                                        <span class="custom-block-indicator">
+                                                    <i class="fa fa-check"></i>
+                                                </span>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="col-12">
+                                <div class="alert alert-warning" role="alert">
+                                    <p class="mb-0">Data Pelanggan Kosong!</p>
+                                </div>
+                            </div>
+                        @endif
+                    @endif
+                    {{--                    <div class="col-8">--}}
+                    {{--                        {{ $pelanggans->links() }}--}}
+                    {{--                    </div>--}}
+                </div>
+            </div>
+        </div>
+
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">Jadwal Pengiriman</div>
+            <div class="block-content">
+
+            </div>
+        </div>
+
     </div>
     <!-- END Page Content -->
 
