@@ -8,7 +8,7 @@ use Livewire\Component;
 class Form extends Component
 {
     public $status='Tambah';
-    public $id_pel,$nama, $deskripsi, $satuan, $stok;
+    public $id_pel,$nama, $deskripsi, $satuan, $stok=0;
     protected $listeners = ['edit' => 'editID','resetform'=>'res'];
 
     public function render()
