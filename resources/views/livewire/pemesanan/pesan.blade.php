@@ -56,7 +56,7 @@
                                 </table>
                             </div>
                         @else
-                            <div class="alert alert-warning" role="alert">
+                            <div class="alert alert-info" role="alert">
                                 <p class="mb-0">Silahkan pilih produk</p>
                             </div>
                         @endif
@@ -136,7 +136,7 @@
                                         <label class="custom-control-label" for="{{$pelanggan->id}}">
                                                     <span class="d-flex align-items-center">
                                                         <img class="img-avatar img-avatar48"
-                                                             src="assets/media/avatars/avatar8.jpg" alt="">
+                                                             src="{{asset('assets/media/avatars/avatar8.jpg')}}" alt="">
                                                         <span class="ml-2">
                                                             <span class="font-w700">{{$pelanggan->nama}}</span>
                                                             <span
@@ -168,7 +168,34 @@
         <div class="block block-rounded">
             <div class="block-header block-header-default">Jadwal Pengiriman</div>
             <div class="block-content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-warning @if($pending) d-block @else d-none @endif" role="alert">
+                            <p class="mb-0">Tanggal pengiriman mengalami penyesuaian dikarenakan stok kurang</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Tanggal Pengiriman</label>
+                            <input type="date" wire:model="tanggal" class="form-control" min="@if($pending){{now()->add('+7 day')->format('Y-m-d')}}@else{{now()->add('+1 day')->format('Y-m-d')}}@endif" value="@if($pending){{now()->add('+7 day')->format('Y-m-d')}}@else{{now()->add('+1 day')->format('Y-m-d')}}@endif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">
+                Konfirmasi Pemesanan
+            </div>
+            <div class="block-content">
+                <div class="row mb-4">
+                    <div class="col-4">
+                        <button class="btn btn-primary" @if(empty($produkselectedid) or $tanggal == null or $idpelanggan == null) disabled @endif>Buat Pemesanan</button>
+                    </div>
+                </div>
             </div>
         </div>
 

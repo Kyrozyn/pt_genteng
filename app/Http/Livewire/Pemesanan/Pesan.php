@@ -12,10 +12,14 @@ class Pesan extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $cariproduk,$caripelanggan;
-    public $produkselectedid=[], $jumlahproduk=[], $idpelanggan,$pending=false;
+    public $produkselectedid=[], $jumlahproduk=[], $idpelanggan,$pending=false, $tanggal;
+    protected $casts = [
+        'tanggal' => 'date:Y-m-d'
+    ];
 
     public function render()
     {
+        \Debugbar::alert('hi');
         if(count($this->produkselectedid) > 0){
             $produkselected = produk::whereIn('id',$this->produkselectedid)->get();
             foreach ($produkselected as $produk){
