@@ -21,7 +21,6 @@ class Pesan extends Component
 
     public function render()
     {
-        \Debugbar::alert('hi');
         if(count($this->produkselectedid) > 0){
             $produkselected = produk::whereIn('id',$this->produkselectedid)->get();
             foreach ($produkselected as $produk){
