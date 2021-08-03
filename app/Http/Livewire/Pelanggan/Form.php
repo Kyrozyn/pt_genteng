@@ -35,7 +35,7 @@ class Form extends Component
             $pelanggan = new pelanggan();
         }
         elseif($this->status == 'Edit'){
-            $pelanggan = pelanggan::whereId($this->id_pel);
+            $pelanggan = pelanggan::whereId($this->id_pel)->first();
         }
         $pelanggan->nama = $this->nama;
         $pelanggan->alamat = $this->alamat;
