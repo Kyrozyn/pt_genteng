@@ -9,4 +9,9 @@ class pelanggan extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function pemesanan()
+    {
+        return $this->hasMany(pemesanan::class);
+    }
 }
