@@ -179,7 +179,7 @@
                     <div class="col-5">
                         <div class="form-group">
                             <label>Tanggal Pengiriman</label>
-                            <input type="date" wire:model="tanggal" class="form-control" min="@if($pending){{now()->add('+7 day')->format('Y-m-d')}}@else{{now()->add('+1 day')->format('Y-m-d')}}@endif" value="@if($pending){{now()->add('+7 day')->format('Y-m-d')}}@else{{now()->add('+1 day')->format('Y-m-d')}}@endif">
+                            <input type="date" wire:model="tanggal" class="form-control" min="@if($pending){{now()->add('+7 day')->format('Y-m-d')}}@else{{now()->format('Y-m-d')}}@endif" value="@if($pending){{now()->add('+7 day')->format('Y-m-d')}}@else{{now()->format('Y-m-d')}}@endif">
                         </div>
                     </div>
                 </div>
