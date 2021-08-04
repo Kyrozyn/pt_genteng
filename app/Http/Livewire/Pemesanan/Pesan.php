@@ -60,7 +60,7 @@ class Pesan extends Component
             'produks' => produk::where('id','like',$cariproduk)
                 ->orWhere('nama','like',$cariproduk)
                 ->orWhere('deskripsi','like',$cariproduk)
-                ->orWhere('satuan','like',$cariproduk)
+                ->orWhere('jenis','like',$cariproduk)
                 ->paginate(5,['*'],'produk'),
             'produkselected' => $produkselected,
             'pelanggans' => $pelanggans
