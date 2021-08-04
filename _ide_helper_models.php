@@ -73,6 +73,8 @@ namespace App\Models{
  * @property string $nama
  * @property string $alamat
  * @property string $no_telp
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\pemesanan[] $pemesanan
+ * @property-read int|null $pemesanan_count
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan query()
@@ -91,7 +93,9 @@ namespace App\Models{
  * @property int $id
  * @property int $pelanggan_id
  * @property string $tanggal_pengiriman
- * @property string $keterangan
+ * @property string|null $keterangan
+ * @property string $status
+ * @property-read \App\Models\pelanggan $pelanggan
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\produk[] $produk
  * @property-read int|null $produk_count
  * @method static \Illuminate\Database\Eloquent\Builder|pemesanan newModelQuery()
@@ -100,6 +104,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|pemesanan whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pemesanan whereKeterangan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pemesanan wherePelangganId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pemesanan whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pemesanan whereTanggalPengiriman($value)
  */
 	class pemesanan extends \Eloquent {}

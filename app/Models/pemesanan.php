@@ -14,4 +14,9 @@ class pemesanan extends Model
     {
         return $this->belongsToMany(produk::class);
     }
+
+    public function pelanggan()
+    {
+        return $this->belongsTo(pelanggan::class,'pelanggan_id','id');
+    }
 }

@@ -139,6 +139,12 @@ MAIN CONTENT LAYOUT
                             <span class="nav-main-link-name">Pemesanan Baru</span>
                         </a>
                     </li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{url('/pemesanan/lihat')}}">
+                            <i class="nav-main-link-icon fa fa-shopping-cart"></i>
+                            <span class="nav-main-link-name">Daftar Pemesanan</span>
+                        </a>
+                    </li>
                     <li class="nav-main-heading">Pelanggan</li>
                     <li class="nav-main-item">
                         <a class="nav-main-link" href="{{url('/pelanggan')}}">

@@ -88,10 +88,11 @@ class Pesan extends Component
             $pemesanan_produk->save();
         }
 
-        $this->alert(
+        $this->flash(
             'success',
             'Pemesanan berhasil dibuat!'
         );
+        return redirect('/pemesanan/lihat');
     }
 
 

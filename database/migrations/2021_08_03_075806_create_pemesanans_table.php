@@ -18,6 +18,7 @@ class CreatePemesanansTable extends Migration
             $table->integer('pelanggan_id');
             $table->date('tanggal_pengiriman');
             $table->string('keterangan')->nullable();
+            $table->string('status')->default('Belum Dikirim');
         });
     }
 
