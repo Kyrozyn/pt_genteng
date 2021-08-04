@@ -20,15 +20,18 @@
                         <textarea type="text" class="form-control" id="Deskripsi" name="Deskripsi" placeholder="Deskripsi Produk" wire:model="deskripsi"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="Satuan">Satuan</label>
-                        <input type="text" class="form-control" id="Satuan" name="Satuan" placeholder="Satuan Produk, Contoh : bungkus, pcs, dan lain lain" wire:model="satuan">
+                        <label for="jenis">Jenis Produk</label>
+                        <select class="form-control" id="jenis" name="jenis" wire:model="jenis">
+                            <option value="Aksesoris">Aksesoris</option>
+J                            <option value="Genteng">Genteng</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Stok">Stok</label>
                         <input type="number" class="form-control" id="Stok" name="Stok" wire:model="stok">
                     </div>
                 </div>
-                <div class="block-content block-content-full text-right bg-light" @if(($nama == null OR $deskripsi == null OR $satuan == null)) style="display: none" @endif>
+                <div class="block-content block-content-full text-right bg-light" @if(($nama == null OR $deskripsi == null OR $jenis == null)) style="display: none" @endif>
                     <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" wire:click="submitAdd">{{$status}} Produk</button>
                 </div>
             </div>

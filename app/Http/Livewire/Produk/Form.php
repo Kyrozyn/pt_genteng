@@ -8,7 +8,7 @@ use Livewire\Component;
 class Form extends Component
 {
     public $status='Tambah';
-    public $id_pel,$nama, $deskripsi, $satuan, $stok=0;
+    public $id_pel,$nama, $deskripsi, $jenis="Aksesoris", $stok=0;
     protected $listeners = ['edit' => 'editID','resetform'=>'res'];
 
     public function render()
@@ -27,7 +27,7 @@ class Form extends Component
         $this->id_pel = $produk->id;
         $this->nama = $produk->nama;
         $this->deskripsi = $produk->deskripsi;
-        $this->satuan = $produk->satuan;
+        $this->jenis = $produk->jenis;
         $this->stok = $produk->stok;
     }
 
@@ -40,7 +40,7 @@ class Form extends Component
         }
         $produk->nama = $this->nama;
         $produk->deskripsi = $this->deskripsi;
-        $produk->satuan = $this->satuan;
+        $produk->jenis = $this->jenis;
         $produk->stok = $this->stok;
         $produk->save();
         if($this->status == 'Tambah'){
