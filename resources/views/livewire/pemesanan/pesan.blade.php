@@ -30,7 +30,7 @@
                                         <th>ID</th>
                                         <th>Nama</th>
                                         <th>Deskripsi</th>
-                                        <th>Satuan</th>
+                                        <th>Jenis</th>
                                         <th>Stok</th>
                                         <th>Jumlah</th>
                                     </tr>
@@ -41,7 +41,7 @@
                                             <td class="text-center">{{$produk->id}}</td>
                                             <td class="text-center">{{$produk->nama}}</td>
                                             <td class="text-center">{{$produk->deskripsi}}</td>
-                                            <td class="text-center">{{$produk->satuan}}</td>
+                                            <td class="text-center">{{$produk->jenis}}</td>
                                             <td class="text-center">{{$produk->stok}}</td>
                                             <td class="text-center" style="width: 20%"><input class="form-control"
                                                                                               type="number"
@@ -81,7 +81,7 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>Deskripsi</th>
-                                <th>Satuan</th>
+                                <th>Jenis</th>
                                 <th>Stok</th>
                                 <th>Aksi</th>
                             </tr>
@@ -92,7 +92,7 @@
                                     <td class="text-center">{{$produk->id}}</td>
                                     <td class="text-center">{{$produk->nama}}</td>
                                     <td class="text-center">{{$produk->deskripsi}}</td>
-                                    <td class="text-center">{{$produk->satuan}}</td>
+                                    <td class="text-center">{{$produk->jenis}}</td>
                                     <td class="text-center">{{$produk->stok}}</td>
                                     <td class="text-center">
                                         <div class="btn-group text-center">
