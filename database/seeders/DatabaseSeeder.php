@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\pelanggan;
+use App\Models\produk;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\App;
@@ -57,5 +59,10 @@ class DatabaseSeeder extends Seeder
         $pegawai->name = 'Pegawai';
         $pegawai->assignRole('Pegawai');
         $pegawai->save();
+
+
+        //Testing Database
+        produk::factory()->count(50)->create();
+        pelanggan::factory()->count(50)->create();
     }
 }
