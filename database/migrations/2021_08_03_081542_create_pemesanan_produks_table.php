@@ -13,7 +13,7 @@ class CreatePemesananProduksTable extends Migration
      */
     public function up()
     {
-        Schema::create('pemesanan_produks', function (Blueprint $table) {
+        Schema::create('pemesanan_produk', function (Blueprint $table) {
             $table->id();
             $table->integer('pemesanan_id');
             $table->integer('produk_id');
@@ -28,6 +28,6 @@ class CreatePemesananProduksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pemesanan_produks');
+        Schema::dropIfExists('pemesanan_produk');
     }
 }
