@@ -12,7 +12,7 @@ class pemesanan extends Model
 
     public function produk()
     {
-        return $this->belongsToMany(produk::class);
+        return $this->belongsToMany(produk::class)->withPivot('jumlah');
     }
 
     public function pelanggan()
