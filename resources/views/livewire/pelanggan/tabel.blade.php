@@ -16,6 +16,15 @@
                 <button type="button" class="btn btn-primary push" data-toggle="modal" data-target="#modal-form" onclick="Livewire.emit('resetform')">Tambah Pelanggan</button>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Cari Pelanggan</label>
+                    <input type="text" class="form-control" wire:model="caripelanggan"
+                           placeholder="Cari berdasarkan ID/Nama/Alamat">
+                </div>
+            </div>
+        </div>
         <div class="table-responsive" wire:ignore.self>
             <table class="table table-bordered table-striped table-vcenter ">
                 <thead>
@@ -53,6 +62,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{$pelanggans->links()}}
         </div>
     </div>
     <!-- END Page Content -->

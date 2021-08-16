@@ -4,18 +4,30 @@ namespace App\Http\Livewire\Pelanggan;
 
 use App\Models\pelanggan;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Tabel extends Component
 {
-    public $pelanggans,$deleteid;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+    public $deleteid,$caripelanggan;
     protected $listeners = [
         'deleteConfirmed','refreshTable'
     ];
 
     public function render()
     {
-        $this->pelanggans = pelanggan::all();
-        return view('livewire.pelanggan.tabel');
+        $caripelanggan = '%'.$this->caripelanggan.'%';
+        if(!$this->caripelanggan == null or !$this->caripelanggan == ''){
+            $pelanggans = pelanggan::where('id','like',$caripelanggan)
+                ->orWhere('nama','like',$caripelanggan)
+                ->orWhere('alamat','like',$caripelanggan)
+                ->paginate(10);
+        }
+        else{
+            $pelanggans = pelanggan::paginate(10);
+        }
+        return view('livewire.pelanggan.tabel',compact('pelanggans'));
     }
 
     public function refreshTable(){
