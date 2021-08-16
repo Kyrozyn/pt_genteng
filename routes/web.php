@@ -25,5 +25,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/kendaraan', \App\Http\Livewire\Kendaraan\Tabel::class);
     Route::get('/pemesanan', \App\Http\Livewire\Pemesanan\Pesan::class);
     Route::get('/pemesanan/lihat', \App\Http\Livewire\Pemesanan\Table::class);
+    Route::get('/pemesanan/lihat/{id}',[\App\Http\Controllers\Dashboard::class,'PemesananDetail']);
 });
 require __DIR__.'/auth.php';

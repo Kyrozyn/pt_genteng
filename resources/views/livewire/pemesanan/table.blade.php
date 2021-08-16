@@ -37,8 +37,8 @@
                                 {{--                                title="Edit">--}}
                                 {{--                            <i class="fa fa-pencil-alt"></i>--}}
                                 {{--                        </button>--}}
-                                <button type="button" class="btn btn-sm btn-primary mr-1">
-                                    <i class="fa fa-info"></i></button>
+                                <a href="{{url('/pemesanan/lihat/'.$pemesanan->id)}}" type="button" class="btn btn-sm btn-primary mr-1">
+                                    <i class="fa fa-info"></i></a>
                                 </button>
                                 <button type="button" wire:loading.attr="disabled" wire:click="delete({{$pemesanan->id}})" class="btn btn-sm btn-danger" data-toggle="tooltip"
                                         title="Delete">
@@ -53,5 +53,5 @@
         </div>
     </div>
     <!-- END Page Content -->
-    @livewire('pelanggan.form')
+{{--    @livewire('pelanggan.form')--}}
 </div>
