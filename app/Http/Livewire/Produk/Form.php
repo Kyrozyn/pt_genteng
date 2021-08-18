@@ -43,7 +43,7 @@ class Form extends Component
             $produk->id = $this->id_produk;
         }
         elseif($this->status == 'Edit'){
-            $this->rules['id_pegawai_training'] = 'required|digits:3|numeric';
+            $this->rules['id_produk'] = 'required|digits:3|numeric';
             $produk = produk::whereId($this->id_pel)->first();
         }
         $this->validate();
