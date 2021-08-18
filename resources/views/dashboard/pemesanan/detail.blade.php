@@ -34,7 +34,7 @@
                                     <tbody>
                                     @foreach($produk as $produk)
                                         <tr>
-                                            <td class="text-center">{{$produk->id}}</td>
+                                            <td class="text-center">B{{str_pad($produk->id,3,'0',STR_PAD_LEFT)}}</td>
                                             <td class="text-center">{{$produk->nama}}</td>
                                             <td class="text-center">{{$produk->deskripsi}}</td>
                                             <td class="text-center">{{$produk->jenis}}</td>
