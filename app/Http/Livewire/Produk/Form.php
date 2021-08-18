@@ -29,6 +29,7 @@ class Form extends Component
 
     public function editID($id){
         $this->status = "Edit";
+        $this->id_pel = $id;
         $produk = produk::whereId($id)->first();
         $this->id_produk = str_pad($produk->id,3,'0',STR_PAD_LEFT);
         $this->nama = $produk->nama;
