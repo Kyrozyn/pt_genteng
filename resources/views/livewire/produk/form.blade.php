@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
                 <div class="block-header bg-primary-dark">
-                    <h3 class="block-title">{{$status}} Produk</h3>
+                    <h3 class="block-title">{{$status}} Barang</h3>
                     <div class="block-options">
                         <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-fw fa-times"></i>
@@ -19,7 +19,7 @@
                         @endforeach
                     </div>
                     <div class="form-group">
-                        <label for="nama">ID Produk</label>
+                        <label for="nama">ID Barang</label>
                         <div class="input-group">
 
                             <div class="input-group-prepend">
@@ -27,22 +27,22 @@
                                                         B
                                                     </span>
                             </div>
-                            <input type="number" class="form-control" id="nama" name="nama" placeholder="ID Produk" wire:model="id_produk">
+                            <input type="number" class="form-control" id="nama" name="nama" placeholder="ID Barang" wire:model="id_produk">
                             @error('id_produk')  @enderror
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nama">Nama Produk</label>
-                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Produk" wire:model="nama">
+                        <label for="nama">Nama Barang</label>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Barang" wire:model="nama">
                         @error('nama') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="Deskripsi">Deskripsi Produk</label>
-                        <textarea type="text" class="form-control" id="Deskripsi" name="Deskripsi" placeholder="Deskripsi Produk" wire:model="deskripsi"></textarea>
+                        <label for="Deskripsi">Deskripsi Barang</label>
+                        <textarea type="text" class="form-control" id="Deskripsi" name="Deskripsi" placeholder="Deskripsi Barang" wire:model="deskripsi"></textarea>
                         @error('deskripsi') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="jenis">Jenis Produk</label>
+                        <label for="jenis">Jenis Barang</label>
                         <select class="form-control" id="jenis" name="jenis" wire:model="jenis">
                             <option value="Aksesoris">Aksesoris</option>
 J                            <option value="Genteng">Genteng</option>
@@ -56,7 +56,7 @@ J                            <option value="Genteng">Genteng</option>
                     </div>
                 </div>
                 <div class="block-content block-content-full text-right bg-light" @if(($nama == null OR $deskripsi == null OR $jenis == null)) style="display: none" @endif>
-                    <button type="button" class="btn btn-sm btn-primary" wire:click="submitAdd">{{$status}} Produk</button>
+                    <button type="button" class="btn btn-sm btn-primary" wire:click="submitAdd">{{$status}} Barang</button>
 {{--                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" wire:click="submitAdd">{{$status}} Produk</button>--}}
                 </div>
             </div>

@@ -12,7 +12,7 @@
     <div class="content">
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                Produk yang dipesan
+                Barang yang dipesan
             </div>
             <div class="block-content">
                 <div class="row">
@@ -57,7 +57,7 @@
                             </div>
                         @else
                             <div class="alert alert-info" role="alert">
-                                <p class="mb-0">Silahkan pilih produk</p>
+                                <p class="mb-0">Silahkan pilih barang</p>
                             </div>
                         @endif
                     </div>
@@ -66,10 +66,10 @@
         </div>
 
         <div class="block block-rounded">
-            <div class="block-header block-header-default">Tambah Produk</div>
+            <div class="block-header block-header-default">Tambah Barang</div>
             <div class="block-content">
                 <div class="form-group">
-                    <label>Cari Produk</label>
+                    <label>Cari Barang</label>
                     <input type="text" class="form-control" wire:model="cariproduk"
                            placeholder="Cari berdasarkan ID/Nama/Deskripsi/Satuan">
                 </div>
@@ -110,7 +110,7 @@
                     </div>
                 @else
                     <div class="alert alert-warning" role="alert">
-                        <p class="mb-0">Data Produk Kosong!</p>
+                        <p class="mb-0">Data Barang Kosong!</p>
                     </div>
                 @endif
             </div>

@@ -246,6 +246,7 @@ MAIN CONTENT LAYOUT
 <!-- Dashmix JS -->
 <script src="{{asset('assets/js/dashmix.core.min.js')}}"></script>
 <script src="{{asset('assets/js/dashmix.app.min.js')}}"></script>
+@yield('scripts')
 @livewireScripts
 </body>
 </html>

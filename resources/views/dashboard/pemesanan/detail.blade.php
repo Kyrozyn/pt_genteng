@@ -15,7 +15,7 @@
     <div class="content">
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                Produk yang dipesan
+                Barang yang dipesan
             </div>
             <div class="block-content">
                 <div class="row">
