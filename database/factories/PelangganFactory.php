@@ -24,7 +24,9 @@ class PelangganFactory extends Factory
         return [
             'nama' => $this->faker->name,
             'alamat' => $this->faker->address,
-            'no_telp' => $this->faker->e164PhoneNumber
+            'no_telp' => $this->faker->e164PhoneNumber,
+            'lat' => $this->faker->latitude,
+            'long' => $this->faker->longitude
         ];
     }
 }
