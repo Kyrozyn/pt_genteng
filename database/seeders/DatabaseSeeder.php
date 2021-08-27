@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
 
 
         //Testing Database
-        produk::factory()->count(50)->create();
-        pelanggan::factory()->count(50)->create();
+//        produk::factory()->count(50)->create();
+//        pelanggan::factory()->count(50)->create();
     }
 }
