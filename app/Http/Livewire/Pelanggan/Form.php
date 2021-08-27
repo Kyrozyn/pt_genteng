@@ -7,8 +7,9 @@ use Livewire\Component;
 
 class Form extends Component
 {
+    public pelanggan $pelanggan;
     public $status='Tambah';
-    public $id_pel,$nama, $alamat, $no_telp;
+    public $id_pel,$nama, $alamat, $no_telp, $lat, $long;
     protected $listeners = ['edit' => 'editID','resetform'=>'res'];
 
     public function render()
@@ -21,13 +22,16 @@ class Form extends Component
         $this->reset();
     }
 
-    public function editID($id){
-        $this->status = "Edit";
-        $pelanggan = pelanggan::whereId($id)->first();
-        $this->id_pel = $pelanggan->id;
-        $this->nama = $pelanggan->nama;
-        $this->alamat = $pelanggan->alamat;
-        $this->no_telp = $pelanggan->no_telp;
+    public function mount(){
+        if(!empty($this->pelanggan)){
+            $this->status = "Edit";
+            $this->id_pel = $this->pelanggan->id;
+            $this->nama = $this->pelanggan->nama;
+            $this->alamat = $this->pelanggan->alamat;
+            $this->no_telp = $this->pelanggan->no_telp;
+            $this->lat = $this->pelanggan->lat;
+            $this->long = $this->pelanggan->long;
+        }
     }
 
     public function submitAdd(){
@@ -40,6 +44,8 @@ class Form extends Component
         $pelanggan->nama = $this->nama;
         $pelanggan->alamat = $this->alamat;
         $pelanggan->no_telp = $this->no_telp;
+        $pelanggan->lat = $this->lat;
+        $pelanggan->long = $this->long;
         $pelanggan->save();
 
         if($this->status == 'Tambah'){
@@ -54,9 +60,7 @@ class Form extends Component
                 'Pelanggan berhasil diedit!'
             );
         }
-        $this->reset();
-//        return redirect()->to('/pelanggan');
-        $this->emit('refreshTable');
+        return redirect()->to('/pelanggan');
     }
 
 }

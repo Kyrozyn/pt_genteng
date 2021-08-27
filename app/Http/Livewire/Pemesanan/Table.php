@@ -26,7 +26,7 @@ class Table extends Component
 
     public function delete($id){
         $this->deleteid = $id;
-        $this->confirm('Apakah anda yakin akan menghapus pemesanan ini?', [
+        $this->confirm('Apakah anda yakin akan membatalkan pemesanan ini?', [
             'toast' => true,
             'position' => 'center',
             'showConfirmButton' => true,
@@ -38,11 +38,12 @@ class Table extends Component
     public function deleteConfirmed()
     {
         $pemesanan = pemesanan::whereId($this->deleteid)->first();
-        $pemesanan->delete();
-        $pemesanan_produk = pemesanan_produk::wherePemesananId($this->deleteid)->delete();
+        $pemesanan->status = 'Dibatalkan';
+        $pemesanan->save();
+//        $pemesanan_produk = pemesanan_produk::wherePemesananId($this->deleteid)->delete();
         $this->alert(
             'success',
-            'Pemesanan berhasil dihapus!'
+            'Pemesanan berhasil dibatalkan!'
         );
     }
 }

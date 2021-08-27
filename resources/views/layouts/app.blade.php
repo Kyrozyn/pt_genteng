@@ -145,11 +145,24 @@ MAIN CONTENT LAYOUT
                             <span class="nav-main-link-name">Daftar Pemesanan</span>
                         </a>
                     </li>
-                    <li class="nav-main-heading">Pelanggan</li>
+                    <li class="nav-main-heading">Pengiriman</li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{url('/pengiriman/buat')}}">
+                            <i class="nav-main-link-icon fa fa-rocket"></i>
+                            <span class="nav-main-link-name">Buat Invoice dan Rute</span>
+                        </a>
+                    </li>
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{url('/pengiriman/invoice')}}">
+                            <i class="nav-main-link-icon fa fa-shopping-cart"></i>
+                            <span class="nav-main-link-name">Daftar Invoice</span>
+                        </a>
+                    </li>
+                    <li class="nav-main-heading">Konsumen</li>
                     <li class="nav-main-item">
                         <a class="nav-main-link" href="{{url('/pelanggan')}}">
                             <i class="nav-main-link-icon fa fa-user-circle"></i>
-                            <span class="nav-main-link-name">Daftar Pelanggan</span>
+                            <span class="nav-main-link-name">Daftar Konsumen</span>
                         </a>
                     </li>
                     <li class="nav-main-heading">Produk</li>

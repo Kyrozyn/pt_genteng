@@ -65,6 +65,24 @@
         </div>
 
         <div class="block block-rounded">
+            <div class="block-header block-header-default">Konsumen</div>
+            <div class="block-content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Nama Konsumen</label>
+                            <input type="text" readonly class="form-control" value="{{$pemesanan->pelanggan->nama}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat Konsumen</label>
+                            <textarea readonly class="form-control">{{$pemesanan->pelanggan->alamat}}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block block-rounded">
             <div class="block-header block-header-default">
                 Detail Pemesanan
             </div>

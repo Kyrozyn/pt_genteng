@@ -48,6 +48,26 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\invoice
+ *
+ * @property int $id
+ * @property int $kendaraan_id
+ * @property string $rute
+ * @property-read \App\Models\kendaraan $kendaraan
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\pemesanan[] $pemesanans
+ * @property-read int|null $pemesanans_count
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice query()
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice whereKendaraanId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice whereRute($value)
+ */
+	class invoice extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\kendaraan
  *
  * @property int $id
@@ -73,13 +93,18 @@ namespace App\Models{
  * @property string $nama
  * @property string $alamat
  * @property string $no_telp
+ * @property string $lat
+ * @property string $long
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\pemesanan[] $pemesanan
  * @property-read int|null $pemesanan_count
+ * @method static \Database\Factories\pelangganFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan query()
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan whereAlamat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pelanggan whereLat($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pelanggan whereLong($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan whereNama($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pelanggan whereNoTelp($value)
  */
@@ -95,6 +120,8 @@ namespace App\Models{
  * @property string $tanggal_pengiriman
  * @property string|null $keterangan
  * @property string $status
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\invoice[] $invoice
+ * @property-read int|null $invoice_count
  * @property-read \App\Models\pelanggan $pelanggan
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\produk[] $produk
  * @property-read int|null $produk_count
@@ -136,15 +163,16 @@ namespace App\Models{
  * @property int $id
  * @property string $nama
  * @property string $deskripsi
- * @property string $satuan
+ * @property string $jenis
  * @property string $stok
+ * @method static \Database\Factories\produkFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|produk newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|produk newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|produk query()
  * @method static \Illuminate\Database\Eloquent\Builder|produk whereDeskripsi($value)
  * @method static \Illuminate\Database\Eloquent\Builder|produk whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|produk whereJenis($value)
  * @method static \Illuminate\Database\Eloquent\Builder|produk whereNama($value)
- * @method static \Illuminate\Database\Eloquent\Builder|produk whereSatuan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|produk whereStok($value)
  */
 	class produk extends \Eloquent {}

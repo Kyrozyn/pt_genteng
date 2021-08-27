@@ -1,47 +1,39 @@
-<div>
-    <!-- Hero -->
-    <div class="bg-body-light">
-        <div class="content content-full">
-            <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                <h1 class="flex-sm-fill font-size-h3 font-w400 mt-0 mb-0 mb-sm-1">Tambah Konsumen</h1>
+<div class="modal" wire:ignore.self id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent mb-0">
+                <div class="block-header bg-primary-dark">
+                    <h3 class="block-title">{{$status}} Konsumen</h3>
+                    <div class="block-options">
+                        <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-fw fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="block-content">
+                    <div class="form-group">
+                        <label for="nama">Nama Konsumen</label>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Konsumen" wire:model="nama">
+                    </div>
+                    <div class="form-group">
+                        <label for="no_telp">No Telepon</label>
+                        <input type="tel" class="form-control" id="no_telp" name="no_telp" placeholder="No Telp Konsumen" wire:model="no_telp">
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat">Alamat Konsumen</label>
+                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat Konsumen" wire:model="alamat">
+                    </div>
+                    <div class="form-group">
+                        <a href="#" id="cariposisi" class="btn btn-primary btn-block">Cari Posisi</a>
+                    </div>
+                    <div id="maps" class="center" style="width: 580px; height: 368px;"></div>
+                </div>
+                <div class="block-content block-content-full text-right bg-light" @if(($nama == null OR $alamat == null OR $no_telp == null)) style="display: none" @endif>
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" wire:click="submitAdd">{{$status}} Konsumen</button>
+                </div>
             </div>
         </div>
     </div>
-    <!-- END Hero -->
-
-    <!-- Page Content -->
-    <div class="content">
-        <div class="block-content">
-            <div class="form-group">
-                <label for="nama">Nama Konsumen</label>
-                <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Konsumen" wire:model="nama">
-            </div>
-            <div class="form-group">
-                <label for="no_telp">No Telepon</label>
-                <input type="tel" class="form-control" id="no_telp" name="no_telp" placeholder="No Telp Konsumen" wire:model="no_telp">
-            </div>
-            <div class="form-group">
-                <label for="alamat">Alamat Konsumen</label>
-                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat Konsumen" wire:model="alamat">
-            </div>
-            <div class="form-group">
-                <a href="#" id="cariposisi" class="btn btn-primary btn-block">Cari Posisi</a>
-            </div>
-            <div wire:ignore id="maps" class="center" style="width: 580px; height: 368px;"></div>
-            <div class="form-group">
-                <label for="lat">Lat</label>
-                <input type="text" class="form-control" id="lat" name="lat" placeholder="Lat" wire:model="lat">
-            </div>
-            <div class="form-group">
-                <label for="long">Long</label>
-                <input type="text" class="form-control" id="long" name="long" placeholder="Long" wire:model="long">
-            </div>
-        </div>
-        <div class="block-content block-content-full text-right bg-light" @if(($nama == null OR $alamat == null OR $no_telp == null OR $lat == null OR $long == null)) style="display: none" @endif>
-            <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" wire:click="submitAdd">{{$status}} Konsumen</button>
-        </div>
-    </div>
-    <!-- END Page Content -->
 </div>
 
 @section('scripts')
@@ -54,7 +46,7 @@
             // membuat peta
             var map = new google.maps.Map(document.getElementById('maps'), {
                 'center': {lat: -6.91757808164908, lng: 107.60850421142572},
-                'zoom': 7,
+                'zoom': 10,
                 scaleControl: true,
                 'mapTypeId': google.maps.MapTypeId.ROADMAP
             });
@@ -105,9 +97,7 @@
                             var point = new google.maps.LatLng(geo.lat(), geo.lng());
 
                             var lat = document.getElementById('lat').value = geo.lat();
-                            @this.set('lat', lat)
                             var lng = document.getElementById('long').value = geo.lng();
-                            @this.set('long', lng)
                             // menambahkan marker pada peta
                             var marker1 = new google.maps.Marker({
                                 position: new google.maps.LatLng(lat, lng),

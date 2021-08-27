@@ -86,6 +86,10 @@ class Pesan extends Component
             $pemesanan_produk->produk_id = $id_barang;
             $pemesanan_produk->jumlah = $jumlah;
             $pemesanan_produk->save();
+
+            $produkku = produk::whereId($id_barang)->first();
+            $produkku->stok = $produkku->stok - $jumlah;
+            $produkku->save();
         }
 
         $this->flash(

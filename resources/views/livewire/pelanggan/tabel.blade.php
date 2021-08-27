@@ -13,7 +13,7 @@
     <div class="content">
         <div class="row">
             <div class="col-12">
-                <button type="button" class="btn btn-primary push" data-toggle="modal" data-target="#modal-form" onclick="Livewire.emit('resetform')">Tambah Konsumen</button>
+                <a class="btn btn-primary push" href="{{url('pelanggan/tambah')}}">Tambah Konsumen</a>
             </div>
         </div>
         <div class="row">
@@ -49,8 +49,8 @@
                                 {{--                                title="Edit">--}}
                                 {{--                            <i class="fa fa-pencil-alt"></i>--}}
                                 {{--                        </button>--}}
-                                <button type="button" class="btn btn-sm btn-primary mr-1" data-toggle="modal" data-target="#modal-form" onclick="Livewire.emit('edit',{{$pelanggan->id}})">
-                                    <i class="fa fa-edit"></i></button>
+                                <a href="{{url('pelanggan/edit/'.$pelanggan->id)}}" class="btn btn-sm btn-primary mr-1">
+                                    <i class="fa fa-edit"></i></a>
                                 </button>
                                 <button type="button" wire:loading.attr="disabled" wire:click="delete({{$pelanggan->id}})" class="btn btn-sm btn-danger" data-toggle="tooltip"
                                         title="Delete">

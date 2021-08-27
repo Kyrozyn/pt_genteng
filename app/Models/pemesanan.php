@@ -19,4 +19,9 @@ class pemesanan extends Model
     {
         return $this->belongsTo(pelanggan::class,'pelanggan_id','id');
     }
+
+    public function invoice()
+    {
+        return $this->belongsToMany(invoice::class, 'invoice_pemesanan');
+    }
 }

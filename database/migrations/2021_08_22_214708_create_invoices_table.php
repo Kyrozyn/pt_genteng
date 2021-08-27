@@ -17,6 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('kendaraan_id');
             $table->string('rute');
+            $table->integer('biaya');
         });
     }
 
