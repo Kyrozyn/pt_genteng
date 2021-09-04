@@ -132,6 +132,7 @@ MAIN CONTENT LAYOUT
                             <span class="nav-main-link-name">Dashboard</span>
                         </a>
                     </li>
+                    @role('Pemilik|Pegawai')
                     <li class="nav-main-heading">Pemesanan</li>
                     <li class="nav-main-item">
                         <a class="nav-main-link" href="{{url('/pemesanan')}}">
@@ -158,6 +159,8 @@ MAIN CONTENT LAYOUT
                             <span class="nav-main-link-name">Daftar Invoice</span>
                         </a>
                     </li>
+                    @endrole
+                    @role('Pemilik|Manager')
                     <li class="nav-main-heading">Konsumen</li>
                     <li class="nav-main-item">
                         <a class="nav-main-link" href="{{url('/pelanggan')}}">
@@ -179,6 +182,7 @@ MAIN CONTENT LAYOUT
                             <span class="nav-main-link-name">Daftar Kendaraan</span>
                         </a>
                     </li>
+                    @endrole
                 </ul>
             </div>
             <!-- END Side Navigation -->
